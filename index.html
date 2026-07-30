@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tamam Attendance & Payroll</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon" />
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet" />
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="mainPage">
+  <!-- Spinner Start -->
+  <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+  
+  <!-- Navbar Start -->
+  <div class="container-fluid sticky-top">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-transparent border-bottom border-2 border-white py-0">
+        <a href="index.html" class="navbar-brand">
+          <img id="Logo" src="img/logo.png" alt="Tamam Logo" width="80px" height="auto" />
+        </a>
+        <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto">
+            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="#how-it-works" class="nav-item nav-link">How It Works</a>
+            <a href="#why-choose-us" class="nav-item nav-link">Why Choose Us</a>
+            <a href="pricing.html" class="nav-item nav-link">Pricing</a>
+            <a href="user-guide.html" class="nav-item nav-link">User Guide</a>
+            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="#" class="btn btn-primary ms-3 get-started-btn" data-bs-toggle="modal" data-bs-target="#getStartedModal">
+  Get Started
+</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Navbar End -->
+  <!-- Hero Start -->
+  <section class="landing-hero landing-hero--plain">
+    <div class="container py-3">
+      <div class="row align-items-center g-5 landing-hero__grid">
+        <div class="col-lg-6 landing-hero__content">
+          <p class="landing-hero__tag animated slideInRight" style="animation-delay: 0.05s">
+            <span class="landing-hero__tag-dot" aria-hidden="true"></span>
+            Attendance & Payroll for modern teams
+          </p>
+
+          <h1 class="landing-hero__title display-6 fw-bold animated slideInRight" style="animation-delay: 0.1s">
+            One secure platform for <span class="text-primary">attendance, payroll, approvals, and reporting</span>.
+          </h1>
+
+          <p class="landing-hero__lead animated slideInRight text-white" style="animation-delay: 0.15s">
+            Reduce manual work, speed up payroll, and give HR and managers real-time visibility from check-in to payslip.
+          </p>
+
+          <div class="landing-hero__store-actions animated slideInRight" style="animation-delay: 0.2s">
+            <a class="store-badge store-badge--apple" href="https://apps.apple.com/us/app/tamam-attendance/id6775738802" target="_blank" rel="noopener noreferrer"
+              aria-label="Download on the App Store">
+              <span class="store-badge__icon" aria-hidden="true"><i class="fab fa-apple"></i></span>
+              <span class="store-badge__text">
+                <span class="store-badge__small">Download on the</span>
+                <span class="store-badge__big">App Store</span>
+              </span>
+            </a>
+
+            <a class="store-badge store-badge--google" href="https://play.google.com/store/apps/details?id=com.techsup.tamam_app" target="_blank" rel="noopener noreferrer"
+              aria-label="Get it on Google Play">
+              <span class="store-badge__icon" aria-hidden="true"><i class="fab fa-google-play"></i></span>
+              <span class="store-badge__text">
+                <span class="store-badge__small">Get it on</span>
+                <span class="store-badge__big">Google Play</span>
+              </span>
+            </a>
+            
+          </div>
+
+          <div class="row g-3 landing-hero__stats-grid mt-3 animated fadeIn">
+            <div class="col-6 col-md-3">
+              <div class="landing-hero__stat">ب
+                <div class="landing-hero__stat-icon" aria-hidden="true">
+                  <i class="far fa-building"></i>
+                </div>
+                <div class="landing-hero__stat-text">
+                  <div class="landing-hero__stat-value counter" data-target="50">0</div>
+                  <div class="landing-hero__stat-label">Companies</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="landing-hero__stat">
+                <div class="landing-hero__stat-icon" aria-hidden="true">
+                  <i class="fa fa-user"></i>
+                </div>
+                <div class="landing-hero__stat-text">
+                  <div class="landing-hero__stat-value counter" data-target="10000">0</div>
+                  <div class="landing-hero__stat-label">Employees</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="landing-hero__stat">
+                <div class="landing-hero__stat-icon" aria-hidden="true">
+                  <i class="fa fa-hand-point-right"></i>
+                </div>
+                <div class="landing-hero__stat-text">
+                  <div class="landing-hero__stat-value counter" data-target="1000000">0</div>
+                  <div class="landing-hero__stat-label">Check-Ins</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="landing-hero__stat">
+                <div class="landing-hero__stat-icon" aria-hidden="true">
+                  <i class="fa fa-chart-line"></i>
+                </div>
+                <div class="landing-hero__stat-text">
+                  <div class="landing-hero__stat-value">Real-Time</div>
+                  <div class="landing-hero__stat-label">Analytics</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 landing-hero__visual">
+          <div class="landing-hero__image-wall" aria-hidden="true">
+            <figure class="landing-hero__device landing-hero__device--a">
+              <img src="img/dashboard-1.png" alt="Attendance dashboard preview"
+                class="img-fluid landing-hero__device-img" />
+            </figure>
+            <figure class="landing-hero__device landing-hero__device--b">
+              <img src="img/dashboard-2.png" alt="Employee leave and shift insights preview"
+                class="img-fluid landing-hero__device-img" />
+            </figure>
+            <figure class="landing-hero__device landing-hero__device--c">
+              <img src="img/dashboard-3.png" alt="Real-time analytics and reporting preview"
+                class="img-fluid landing-hero__device-img" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Hero End -->
+
+     <!-- Modal -->
+  <div class="modal fade" id="getStartedModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content get-started-modal">
+
+      <div class="modal-header border-0">
+        <div>
+          <h5 class="modal-title fw-bold">Request a Demo</h5>
+          <p class="modal-subtitle">Share your company information below and our team will contact you to arrange your personalized Tamam demo.</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#getStartedModal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="getStartedForm">
+
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+            </div>
+
+            <div class="col-12">
+              <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+              <small class="error-text"></small>
+            </div>
+
+            <div class="col-12">
+              <input type="text" class="form-control" id="phone" placeholder="Phone Number" required>
+            </div>
+
+            <div class="col-12">
+              <input type="text" class="form-control" id="company" placeholder="Company Name" required>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary w-100 submit-btn">Request Demo</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- How It Works -->
+  <section class="how-it-works py-5" id="how-it-works">
+    <div class="container">
+      <div class="text-center mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <h2 class="fw-bold text-primary">
+          How It <span class="text-uppercase px-2">Works</span>
+        </h2>
+        <p class="text-muted">
+          Just three steps to get your teams onboard, track attendance, and run payroll with confidence.
+        </p>
+      </div>
+
+      <div class="how-it-works__steps row g-4">
+        <div class="col-12">
+          <article class="how-step wow fadeInUp" data-wow-delay="0.15s">
+            <div class="how-step__header text-center mb-4">
+              <div class="how-step__badge">How to Start</div>
+              <h5 class="how-step__title">Request a Demo and Start Your Company with Tamam</h5>
+              <p class="how-step__description">
+                Click <strong>Request Demo</strong>, enter your company information, and we will help you set up your workspace, branches, and payroll flow with confidence.
+              </p>
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-primary get-started-btn">Request Demo</a>
+              </div>
+            </div>
+            <div class="how-step__device mx-auto" style="max-width: 820px;">
+              <img src="img/startcompany.png" alt="Tamam demo request and company setup flow screenshot"
+                class="img-fluid rounded-5 shadow-sm" />
+            </div>
+          </article>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="col-md-4">
+          <article class="how-step wow fadeInUp" data-wow-delay="0.2s">
+            <div class="how-step__header">
+              <div class="how-step__badge">Step 1</div>
+              <h5 class="how-step__title">Start Your Company</h5>
+              <p class="how-step__description">
+                Set up your company profile, organize teams, and launch your Tamam workspace from a clean dashboard view.
+              </p>
+            </div>
+            <div class="how-step__device">
+              <div class="device-frame">
+                <img src="img/mobile-frame.png" alt="Mobile phone frame" class="device-frame__image" />
+                <div class="device-frame__screen">
+                  <img src="img/how-step-1.jpeg" alt="Dashboard screenshot showing company setup and overview"
+                    class="device-frame__screen-image" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-md-4">
+          <article class="how-step wow fadeInUp" data-wow-delay="0.35s">
+            <div class="how-step__header">
+              <div class="how-step__badge">Step 2</div>
+              <h5 class="how-step__title">Sign In</h5>
+              <p class="how-step__description">
+                Sign in using your account credentials Or Your Fingerprint to access your App and team tools.
+              </p>
+            </div>
+            <div class="how-step__device">
+              <div class="device-frame">
+                <img src="img/mobile-frame.png" alt="Mobile phone frame" class="device-frame__image" />
+                <div class="device-frame__screen">
+                  <img src="img/how-step-2.jpeg" alt="App screen showing employee list and profiles"
+                    class="device-frame__screen-image" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-md-4">
+          <article class="how-step wow fadeInUp" data-wow-delay="0.5s">
+            <div class="how-step__header">
+              <div class="how-step__badge">Step 3</div>
+              <h5 class="how-step__title">Logout</h5>
+              <p class="how-step__description">
+                Log out anytime to keep your account secure when you finish your session.
+              </p>
+            </div>
+            <div class="how-step__device">
+              <div class="device-frame">
+                <img src="img/mobile-frame.png" alt="Mobile phone frame" class="device-frame__image" />
+                <div class="device-frame__screen">
+                  <img src="img/how-step-3.jpeg" alt="App screen showing attendance analytics"
+                    class="device-frame__screen-image" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works End -->
+  <!-- Why Choose Us Start -->
+  <section class="why-choose-showcase py-5" id="why-choose-us">
+    <div class="container">
+      <div class="why-choose-showcase__intro text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <p class="why-choose-showcase__eyebrow">Why Choose Us</p>
+        <h2 class="why-choose-showcase__title">
+          <span class="scribble-word">Powerful</span> attendance and payroll platform built for real HR teams
+        </h2>
+        <p class="why-choose-showcase__description">
+          Tamam helps HR and finance teams replace scattered tools with one modern workspace for attendance,
+          payroll, contracts, leave, and reporting. It is designed to save time, reduce errors, and keep every team aligned.
+        </p>
+      </div>
+
+      <div class="why-choose-pillars row g-4 mb-5">
+        <div class="col-md-4">
+          <article class="why-choose-pillar wow fadeInUp" data-wow-delay="0.12s">
+            <div class="why-choose-pillar__icon"><i class="fas fa-smile"></i></div>
+            <h5 class="why-choose-pillar__title">A great experience for everyone</h5>
+            <p class="why-choose-pillar__text">Simple, fast, and intuitive screens for admins, managers, and employees.
+            </p>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="why-choose-pillar wow fadeInUp" data-wow-delay="0.18s">
+            <div class="why-choose-pillar__icon"><i class="fas fa-users"></i></div>
+            <h5 class="why-choose-pillar__title">Special attention to employees</h5>
+            <p class="why-choose-pillar__text">Employee-first flows for check-in, leave requests, and status
+              transparency.</p>
+          </article>
+        </div>
+        <div class="col-md-4">
+          <article class="why-choose-pillar wow fadeInUp" data-wow-delay="0.24s">
+            <div class="why-choose-pillar__icon"><i class="fas fa-chart-line"></i></div>
+            <h5 class="why-choose-pillar__title">Improving performance and profitability</h5>
+            <p class="why-choose-pillar__text">Actionable insights that reduce time waste and improve workforce
+              efficiency.</p>
+          </article>
+        </div>
+      </div>
+
+      <section class="payroll-overview py-4 wow fadeInUp" data-wow-delay="0.15s">
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
+            <article class="why-choose-pillar h-100">
+              <div class="why-choose-pillar__icon"><i class="fas fa-file-contract"></i></div>
+              <h5 class="why-choose-pillar__title">Contracts & Salary Types</h5>
+              <p class="why-choose-pillar__text">Manage contracts, salary components, and pay structures in a clear and organized flow.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="why-choose-pillar h-100">
+              <div class="why-choose-pillar__icon"><i class="fas fa-shield-alt"></i></div>
+              <h5 class="why-choose-pillar__title">Policies & Compliance</h5>
+              <p class="why-choose-pillar__text">Handle payroll, attendance, overtime, and insurance policies with consistent governance.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="why-choose-pillar h-100">
+              <div class="why-choose-pillar__icon"><i class="fas fa-money-bill-wave"></i></div>
+              <h5 class="why-choose-pillar__title">Payroll Records & Payslips</h5>
+              <p class="why-choose-pillar__text">Review payroll records, details, periods, totals, and payslips from one place.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <article class="why-choose-pillar h-100">
+              <div class="why-choose-pillar__icon"><i class="fas fa-university"></i></div>
+              <h5 class="why-choose-pillar__title">Loans & Exports</h5>
+              <p class="why-choose-pillar__text">Support employee loans, advances, payroll exports, and audit trails for complete control.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="service-detail-list">
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/smart.png" alt="Smart Smartphone App service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Smart Smartphone App</h4>
+              <p class="service-detail__subtitle">A smooth mobile experience for attendance, approvals, and employee self-service.</p>
+              <ul class="service-detail__features">
+                <li>Mobile check-in</li>
+                <li>Instant approvals</li>
+                <li>Secure access</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.12s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/Attendance and Leave Requests.png" alt="Attendance and Leave Requests service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Attendance and Leave Requests</h4>
+              <p class="service-detail__subtitle">Handle daily attendance and leave requests without extra paperwork.</p>
+              <ul class="service-detail__features">
+                <li>Request leave</li>
+                <li>Track status</li>
+                <li>Manager approval</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.14s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/reportlogs.png" alt="Various HR Reports service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Periodic Reports for Employees and Managers</h4>
+              <p class="service-detail__subtitle">Share regular insights to help every team stay aligned and informed.</p>
+              <ul class="service-detail__features">
+                <li>Monthly snapshots</li>
+                <li>Team trend analysis</li>
+                <li>Fast export</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.18s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/proof notifiacation.png" alt="Proof of Attendance During Working Hours service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Proof of Attendance During Working Hours</h4>
+              <p class="service-detail__subtitle">Keep reliable attendance records for compliance, audits, and payroll support.</p>
+              <ul class="service-detail__features">
+                <li>Time proof</li>
+                <li>Audit logs</li>
+                <li>Compliance-ready</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+         <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.22s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/" alt="Interactive Dashboard and Maps service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Interactive Dashboard and Maps</h4>
+              <p class="service-detail__subtitle">See attendance, branches, and live activity in an intuitive visual view.</p>
+              <ul class="service-detail__features">
+                <li>Live overview</li>
+                <li>Map insights</li>
+                <li>Quick drill-down</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.20s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/" alt="Advanced Geofencing Management service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Advanced Geofencing Management</h4>
+              <p class="service-detail__subtitle">Control attendance by location with smart geofencing and radius rules.</p>
+              <ul class="service-detail__features">
+                <li>Location rules</li>
+                <li>Multi-site setup</li>
+                <li>Radius control</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.24s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/profile2.png" alt="Employee Profiles service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Employee Profiles</h4>
+              <p class="service-detail__subtitle">Maintain complete employee records, status history, and profile details in one place.</p>
+              <ul class="service-detail__features">
+                <li>Profile records</li>
+                <li>History timeline</li>
+                <li>Document access</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.26s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/delegations.png" alt="Alternative Managerial Delegation for Request Approval service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Alternative Managerial Delegation for Request Approval</h4>
+              <p class="service-detail__subtitle">Keep approvals moving even when a manager is unavailable.</p>
+              <ul class="service-detail__features">
+                <li>Delegated approvals</li>
+                <li>Backup workflow</li>
+                <li>Continuous operations</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.28s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/reminder.png" alt="Reminder Alerts service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Reminder Alerts</h4>
+              <p class="service-detail__subtitle">Send proactive reminders for check-ins, approvals, and important HR actions.</p>
+              <ul class="service-detail__features">
+                <li>Push alerts</li>
+                <li>Custom triggers</li>
+                <li>Priority reminders</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.30s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/remote.png" alt="Remote Work Policy Support service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Remote Work Policy Support</h4>
+              <p class="service-detail__subtitle">Support hybrid teams with rules that fit remote and on-site attendance needs.</p>
+              <ul class="service-detail__features">
+                <li>Hybrid policies</li>
+                <li>Remote tracking</li>
+                <li>Flexible rules</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.32s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/" alt="Integration with Various HR Systems service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Integration with Various HR Systems</h4>
+              <p class="service-detail__subtitle">Connect Tamam with your existing HR tools for smoother operations and data flow.</p>
+              <ul class="service-detail__features">
+                <li>HR integrations</li>
+                <li>Data sync</li>
+                <li>Unified workflow</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.34s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/manageshifts.png" alt="Management of Work Shifts and Flexible Hours service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Management of Work Shifts and Flexible Hours</h4>
+              <p class="service-detail__subtitle">Plan schedules and flexible hours with less effort and more accuracy.</p>
+              <ul class="service-detail__features">
+                <li>Shift planning</li>
+                <li>Flexible timing</li>
+                <li>Conflict checks</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.36s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/dashboard-2.png" alt="Monitoring Employee Mood service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Monitoring Employee Mood</h4>
+              <p class="service-detail__subtitle">Understand employee sentiment to support engagement and workplace wellbeing.</p>
+              <ul class="service-detail__features">
+                <li>Mood insights</li>
+                <li>Wellbeing trends</li>
+                <li>Actionable feedback</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.38s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/leaves.png" alt="Set Leave and Permission Requests service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Set Leave and Permission Requests</h4>
+              <p class="service-detail__subtitle">Create and approve leave or permission requests with fast, transparent workflows.</p>
+              <ul class="service-detail__features">
+                <li>Leave rules</li>
+                <li>Permission handling</li>
+                <li>Approval visibility</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.40s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/dashboard-1.png" alt="Employee Insights service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Employee Insights</h4>
+              <p class="service-detail__subtitle">Turn attendance and behavior data into practical workforce insights.</p>
+              <ul class="service-detail__features">
+                <li>Workforce trends</li>
+                <li>Attendance patterns</li>
+                <li>Decision support</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail row g-4 align-items-center wow fadeInUp" data-wow-delay="0.42s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--one"></span><img src="img/yours.png" alt="Make It Yours service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Make It Yours</h4>
+              <p class="service-detail__subtitle">Customize the platform to fit your company structure, policies, and goals.</p>
+              <ul class="service-detail__features">
+                <li>Custom setup</li>
+                <li>Policy flexibility</li>
+                <li>Brand alignment</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-detail service-detail--reverse row g-4 align-items-center wow fadeInUp" data-wow-delay="0.44s">
+          <div class="col-lg-6 p-0 px-md-2">
+            <div class="service-detail__media m-5"><span class="service-detail__shape service-detail__shape--two"></span><img src="img/moodaction.png" alt="Take Action to Improve Employee Mood service screenshot" class="service-detail__image" /></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-detail__content">
+              <h4 class="service-detail__title">Take Action to Improve Employee Mood</h4>
+              <p class="service-detail__subtitle">Use insights and alerts to support happier, healthier teams every day.</p>
+              <ul class="service-detail__features">
+                <li>Engagement actions</li>
+                <li>Wellbeing support</li>
+                <li>Team improvement</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="d-flex justify-content-center align-items-center pt-5">
+        <a href="#" class="btn btn-primary service-detail__cta">Request Demo</a>
+      </div>
+    </div>
+  </section>
+  <!-- Why Choose Us End -->
+
+  <!-- Payroll Services Start -->
+  <section class="py-5 bg-white" id="payroll-services">
+    <div class="container">
+      <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+        <p class="why-choose-showcase__eyebrow">Payroll Services</p>
+        <h2 class="why-choose-showcase__title">Built to support payroll operations in a clear, organized way</h2>
+        <p class="why-choose-showcase__description">
+          Use Tamam for attendance only, or combine it with payroll to manage contracts,
+          salary structure, records, payslips, and exports from one platform.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.12s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/department.png" alt="Employee contract and salary structure preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Contracts & Salary Types</h5>
+            <p class="why-choose-pillar__text">Create and maintain employee contracts, salary components, and pay structures with full visibility.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.18s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/reportlogs.png" alt="Payroll records and payslip preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Payroll Records & Payslips</h5>
+            <p class="why-choose-pillar__text">Generate payroll records, review payroll details, manage periods, and issue payslips with confidence.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.24s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/attendance.png" alt="Policies and compliance preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Policies & Compliance</h5>
+            <p class="why-choose-pillar__text">Track attendance policies, overtime rules, insurance policies, and payroll governance in one place.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.30s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/summary.png" alt="Loans and advances preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Loans & Advances</h5>
+            <p class="why-choose-pillar__text">Support employee loans and advances with organized workflows and clear records for finance teams.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.36s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/download report.png" alt="Payroll export and audit trail preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Payroll Exports & Audit Trails</h5>
+            <p class="why-choose-pillar__text">Export payroll data, review audit logs, and keep reports ready for finance, leadership, and compliance.</p>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.42s">
+          <article class="why-choose-pillar h-100">
+            <img src="img/dashboard-1.png" alt="Attendance and payroll subscription overview preview" class="img-fluid rounded-3 mb-3" />
+            <h5 class="why-choose-pillar__title">Attendance Only or Both</h5>
+            <p class="why-choose-pillar__text">Choose the subscription that fits your business: attendance only, or combine it with payroll for full coverage.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Payroll Services End -->
+      <!-- CTA Section Start -->
+    <section class="cta-section py-5">
+  <div class="container">
+    <div class="cta-card text-center">
+
+      <div class="cta-content">
+        <h2 class="cta-title">
+          Ready to Transform Your <span class="text-primary">Attendance & Payroll</span> Workflow?
+        </h2>
+
+        <p class="cta-description">
+          Start managing attendance, payroll, contracts, and reports in one powerful platform.
+          Join hundreds of companies already using Tamam.
+        </p>
+
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary cta-btn-primary">
+            Get Started Free
+          </a>
+
+          <a href="#" class="btn btn-outline-primary cta-btn-secondary">
+            Request Demo
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+   <!-- CTA Section End -->
+  <!-- Pricing Plans Start -->
+  <section class="pricing-future bg-white reveal py-5" id="pricing">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Choose the right plan for your <span class="text-uppercase text-primary bg-light-blue px-2">Attendance & Payroll</span> needs</h2>
+        <p class="text-muted">Start with attendance essentials or scale to a full payroll-ready workspace with contracts, payslips, reports, and finance-friendly exports.</p>
+      </div>
+
+      <div class="pricing-tabs" aria-label="Pricing filters">
+        <div class="pricing-tab-panel">
+          <div class="pricing-tab-group pricing-tab-group--type" role="tablist" aria-label="Package type">
+            <button class="pricing-tab active" type="button" data-pricing-product="attendance">Attendance</button>
+            <button class="pricing-tab" type="button" data-pricing-product="payroll">Payroll</button>
+            <button class="pricing-tab" type="button" data-pricing-product="bundle">Attendance & Payroll</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-tab-content">
+        <div class="pricing-tab-group pricing-tab-group--period" role="tablist" aria-label="Billing period">
+          <button class="pricing-tab active" type="button" data-pricing-period="monthly">Monthly</button>
+          <button class="pricing-tab" type="button" data-pricing-period="quarterly">Quarterly</button>
+          <button class="pricing-tab" type="button" data-pricing-period="semi">Semi</button>
+          <button class="pricing-tab" type="button" data-pricing-period="yearly">Yearly</button>
+        </div>
+
+        <div class="pricing-grid" data-pricing-grid>
+
+          <!-- Plan 1 -->
+          <div class="price-card reveal" data-plan-index="0">
+            <div class="price-header">
+              <h4 data-plan-title>Attendance Essentials</h4>
+              <p data-plan-description>For small teams that need simple attendance control</p>
+            </div>
+            <div class="price-tag">
+              <h3 data-plan-price><img src="img/Saudi_Riyal_Symbol.png" alt="Saudi_Riyal_Symbol" width="20px"> 19<span>/user</span></h3>
+            </div>
+            <ul class="price-features" data-plan-features>
+              <li><i class="fas fa-check"></i> Up to 50 employees</li>
+              <li><i class="fas fa-check"></i> Daily attendance tracking</li>
+              <li><i class="fas fa-check"></i> Leave and approval workflow</li>
+              <li><i class="fas fa-check"></i> Basic reports and exports</li>
+            </ul>
+            <button class="price-btn" data-plan-action>Get Started</button>
+          </div>
+
+          <!-- Plan 2 (Popular) -->
+          <div class="price-card popular reveal" data-plan-index="1">
+            <div class="badge" data-plan-badge>Most Popular</div>
+            <div class="price-header">
+              <h4 data-plan-title>Attendance Plus</h4>
+              <p data-plan-description>For growing teams that need stronger attendance control</p>
+            </div>
+            <div class="price-tag">
+              <h3 data-plan-price><img src="img/Saudi_Riyal_Symbol.png" alt="Saudi_Riyal_Symbol" width="20px"> 29<span>/user</span></h3>
+            </div>
+            <ul class="price-features" data-plan-features>
+              <li><i class="fas fa-check"></i> Up to 100 employees</li>
+              <li><i class="fas fa-check"></i> Attendance analytics and policy controls</li>
+              <li><i class="fas fa-check"></i> Shift scheduling and location rules</li>
+              <li><i class="fas fa-check"></i> Priority support and onboarding</li>
+            </ul>
+            <button class="price-btn primary-btn" data-plan-action>Choose Plan</button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="price-card reveal" data-plan-index="2">
+            <div class="price-header">
+              <h4 data-plan-title>Attendance Enterprise</h4>
+              <p data-plan-description>Tailored for multi-branch attendance operations</p>
+            </div>
+            <div class="price-tag">
+              <h3 data-plan-price>Custom</h3>
+            </div>
+            <ul class="price-features" data-plan-features>
+              <li><i class="fas fa-check"></i> Unlimited employees</li>
+              <li><i class="fas fa-check"></i> Advanced attendance automation</li>
+              <li><i class="fas fa-check"></i> Dedicated implementation and account support</li>
+              <li><i class="fas fa-check"></i> Custom integrations and reporting</li>
+            </ul>
+            <button class="price-btn" data-plan-action>Contact Sales</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Pricing Plans End -->
+<!-- Newsletter Start -->
+ <section class="newsletter-section py-5">
+  <div class="container">
+    <div class="newsletter-card text-center">
+
+      <div class="newsletter-content">
+        <h3 class="newsletter-title">
+          Stay Updated with <span class="text-primary">Tamam</span>
+        </h3>
+
+        <p class="newsletter-description">
+          Get the latest updates, HR tips, and product features delivered straight to your inbox.
+        </p>
+
+       <form class="newsletter-form" novalidate>
+  <div class="newsletter-input-group">
+
+    <div class="newsletter-field">
+      <input 
+        id="newsletter-input"
+        type="email" 
+        class="newsletter-input" 
+        placeholder="Enter your email address"
+        required
+      >
+      <small class="newsletter-error"></small>
+
+      <!-- Suggestions -->
+      <div class="email-suggestions"></div>
+    </div>
+
+    <button type="submit" class="newsletter-btn">
+      Subscribe
+    </button>
+
+  </div>
+</form>
+
+        <p class="newsletter-note">
+          No spam. Only valuable updates.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Newsletter End -->
+
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-white-50 footer pt-5">
+    <div class="container py-3">
+      <div class="row g-5">
+
+        <!-- Logo & About -->
+        <div class="col-md-6 col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+          <a href="index.html" class="d-flex justify-content-center d-inline-block mb-3">
+            <img src="img/logo.png" width="120px" alt="Logo">
+          </a>
+          <p class="mb-4">
+            Tamam Attendance & Payroll helps HR teams manage attendance, contracts,
+            policies, payroll records, and reports from one secure platform.
+          </p>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+          <h5 class="text-white mb-4">Get In Touch</h5>
+          <p><i class="fa fa-map-marker-alt me-3"></i>12 Cerecon - 4th Floor - Office No. 403, Olaya St, Riyadh 12241,
+            Saudi Arabia.</p>
+          <p><i class="fa fa-phone-alt me-3"></i>+966 920015409</p>
+          <p><i class="fa fa-envelope me-3"></i>info@techsupbusiness.com</p>
+          <div class="d-flex pt-2">
+            <a class="btn btn-outline-primary btn-square border-2 me-2" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="btn btn-outline-primary btn-square border-2 me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="btn btn-outline-primary btn-square border-2 me-2" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="btn btn-outline-primary btn-square border-2 me-2" href="#"><i class="fab fa-youtube"></i></a>
+            <a class="btn btn-outline-primary btn-square border-2 me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Important Links -->
+        <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+          <h5 class="text-white mb-4">Quick Links</h5>
+          <a class="btn btn-link" href="index.html">Home</a>
+          <a class="btn btn-link" href="index.html#how-it-works">How It Works</a>
+          <a class="btn btn-link" href="index.html#why-choose-us">Why Choose US</a>
+          <a class="btn btn-link" href="pricing.html">Pricing</a>
+          <a class="btn btn-link" href="contact.html">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container wow fadeIn" data-wow-delay="0.1s">
+      <div class="copyright">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-3 mb-md-0">
+            &copy; <a class="border-bottom" href="#">Techsup Tamam</a>, All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer End -->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+  <!-- JavaScript Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
