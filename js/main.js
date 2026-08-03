@@ -430,6 +430,22 @@ if (modalForm && modalEmailInput && modalErrorText) {
     total: compareSummary ? compareSummary.querySelector("[data-summary-field=total] strong") : null
   };
 
+  let compareSummaryUpdated = false;
+  let comparePricesUpdated = false;
+
+  const resetComparePrices = () => {
+    comparePriceCards.forEach((card) => {
+      const valueEl = card.querySelector(".compare-price-value");
+      const suffixEl = card.querySelector("small");
+      if (valueEl) valueEl.textContent = "";
+      if (suffixEl) suffixEl.textContent = "";
+    });
+
+    comparePriceCells.forEach((cell) => {
+      cell.innerHTML = "";
+    });
+  };
+
   const comparePlans = {
     attendance: { label: "Attendance", icon: "fas fa-users" },
     payroll: { label: "Payroll", icon: "fas fa-file-invoice-dollar" },
@@ -469,6 +485,11 @@ if (modalForm && modalEmailInput && modalErrorText) {
   };
 
   const updateComparePriceCells = () => {
+    if (!comparePricesUpdated) {
+      resetComparePrices();
+      return;
+    }
+
     const selectedPeriod = getCompareActive("period") || "yearly";
 
     comparePriceCells.forEach((cell) => {
@@ -490,6 +511,11 @@ if (modalForm && modalEmailInput && modalErrorText) {
   };
 
   const updateComparePriceCards = () => {
+    if (!comparePricesUpdated) {
+      resetComparePrices();
+      return;
+    }
+
     const selectedPeriod = getCompareActive("period") || "yearly";
     const periodLabel = selectedPeriod === "monthly"
       ? "/user/month"
@@ -524,8 +550,6 @@ if (modalForm && modalEmailInput && modalErrorText) {
       card.classList.toggle("compare-card--active", card.dataset.comparePlan === selectedSystem);
     });
   };
-
-  let compareSummaryUpdated = false;
 
   const resetCompareSummary = () => {
     if (!compareSummary) return;
@@ -616,6 +640,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
       });
 
       compareSummaryUpdated = true;
+      comparePricesUpdated = true;
       updateCompareSection();
     });
   });
