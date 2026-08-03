@@ -1919,6 +1919,11 @@ html {
   margin-bottom: 18px;
 }
 
+.summary-card__header .badge {
+  position: static;
+  margin-left: auto;
+}
+
 .summary-card__header h5 {
   margin: 0;
 }

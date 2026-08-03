@@ -425,6 +425,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
     billing: compareSummary ? compareSummary.querySelector("[data-summary-field=billing] strong") : null,
     base: compareSummary ? compareSummary.querySelector("[data-summary-field=base] strong") : null,
     discount: compareSummary ? compareSummary.querySelector("[data-summary-field=discount] strong") : null,
+    subtotal: compareSummary ? compareSummary.querySelector("[data-summary-field=subtotal] strong") : null,
     vat: compareSummary ? compareSummary.querySelector("[data-summary-field=vat] strong") : null,
     total: compareSummary ? compareSummary.querySelector("[data-summary-field=total] strong") : null
   };
@@ -524,7 +525,31 @@ if (modalForm && modalEmailInput && modalErrorText) {
     });
   };
 
+  let compareSummaryUpdated = false;
+
+  const resetCompareSummary = () => {
+    if (!compareSummary) return;
+    if (compareSummaryLines.package) compareSummaryLines.package.textContent = "-";
+    if (compareSummaryLines.employees) compareSummaryLines.employees.textContent = "-";
+    if (compareSummaryLines.billing) compareSummaryLines.billing.textContent = "-";
+    if (compareSummaryLines.base) compareSummaryLines.base.textContent = "-";
+    if (compareSummaryLines.discount) compareSummaryLines.discount.textContent = "-";
+    if (compareSummaryLines.subtotal) compareSummaryLines.subtotal.textContent = "-";
+    if (compareSummaryLines.vat) compareSummaryLines.vat.textContent = "-";
+    if (compareSummaryLines.total) compareSummaryLines.total.textContent = "-";
+
+    const discountLabel = compareSummary.querySelector("[data-summary-label=discount]");
+    const vatLabel = compareSummary.querySelector("[data-summary-label=vat]");
+    if (discountLabel) discountLabel.textContent = "Discount";
+    if (vatLabel) vatLabel.textContent = "VAT 15%";
+  };
+
   const updateCompareSummary = () => {
+    if (!compareSummaryUpdated) {
+      resetCompareSummary();
+      return;
+    }
+
     const selectedSystem = getCompareActive("system") || "attendance";
     const selectedPeriod = getCompareActive("period") || "yearly";
     const selectedBand = getCompareActive("band") || "51-200";
@@ -552,6 +577,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
     if (compareSummaryLines.billing) compareSummaryLines.billing.textContent = periodLabel;
     if (compareSummaryLines.base) compareSummaryLines.base.innerHTML = priceValue ? format(subtotal) : "Custom pricing";
     if (compareSummaryLines.discount) compareSummaryLines.discount.innerHTML = priceValue ? `- ${format(discount)}` : "-";
+    if (compareSummaryLines.subtotal) compareSummaryLines.subtotal.innerHTML = priceValue ? format(afterDiscount) : "-";
     if (compareSummaryLines.vat) compareSummaryLines.vat.innerHTML = priceValue ? format(vat) : "-";
     if (compareSummaryLines.total) compareSummaryLines.total.innerHTML = priceValue ? format(total) : "Custom pricing";
 
@@ -589,6 +615,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
         }
       });
 
+      compareSummaryUpdated = true;
       updateCompareSection();
     });
   });
