@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-12 d-flex justify-content-center p-0">
 
-                  <button type="button" class="pricing-chip active" data-compare-system="attendance">Attendance</button>
+                  <button type="button" class="pricing-chip" data-compare-system="attendance">Attendance</button>
                   <button type="button" class="pricing-chip" data-compare-system="payroll">Payroll</button>
                   <button type="button" class="pricing-chip" data-compare-system="bundle">Attendance & Payroll</button>
                 </div>
@@ -87,7 +87,7 @@
                   <span class="filter-label">Subscription period:</span>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                  <button type="button" class="pricing-chip active" data-compare-period="yearly">Yearly</button>
+                  <button type="button" class="pricing-chip" data-compare-period="yearly">Yearly</button>
                   <button type="button" class="pricing-chip" data-compare-period="semi">6 months</button>
                 </div>
               </div>
@@ -100,7 +100,7 @@
                 <div class="col-12 d-flex justify-content-center">
 
                   <button type="button" class="pricing-chip" data-compare-band="5-50">5–50</button>
-                  <button type="button" class="pricing-chip active" data-compare-band="51-200">51–200</button>
+                  <button type="button" class="pricing-chip" data-compare-band="51-200">51–200</button>
                   <button type="button" class="pricing-chip" data-compare-band="201+">201+</button>
                 </div>
               </div>
@@ -178,6 +178,11 @@
         <div class="row g-4 align-items-start">
           <div class="col-lg-8">
             <div class="pricing-comparison__table mb-4">
+              <div class="employee-count-input mb-4">
+                <label for="exactEmployeesInput" class="form-label">Exact employee count</label>
+                <input type="number" min="1" id="exactEmployeesInput" class="form-control" placeholder="Enter exact number of employees">
+                <div id="employeeCountError" class="text-danger small mt-1"></div>
+              </div>
               <h5>Pricing by employee count</h5>
               <div class="table-responsive">
                 <table class="table align-middle">

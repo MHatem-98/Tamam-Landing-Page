@@ -419,6 +419,8 @@ if (modalForm && modalEmailInput && modalErrorText) {
   const comparePriceCards = document.querySelectorAll("[data-compare-price]");
   const compareCards = document.querySelectorAll("[data-compare-plan]");
   const compareSummary = document.querySelector(".summary-card");
+  const exactEmployeesInput = document.getElementById("exactEmployeesInput");
+  const employeeCountError = document.getElementById("employeeCountError");
   const compareSummaryLines = {
     package: compareSummary ? compareSummary.querySelector("[data-summary-field=package] strong") : null,
     employees: compareSummary ? compareSummary.querySelector("[data-summary-field=employees] strong") : null,
@@ -430,6 +432,65 @@ if (modalForm && modalEmailInput && modalErrorText) {
     total: compareSummary ? compareSummary.querySelector("[data-summary-field=total] strong") : null
   };
 
+  const getExactEmployeeCount = () => {
+    if (!exactEmployeesInput) return null;
+    const value = Number(exactEmployeesInput.value);
+    return Number.isInteger(value) && value > 0 ? value : null;
+  };
+
+  const getBandRange = (band) => {
+    if (band === "5-50") return { min: 5, max: 50 };
+    if (band === "51-200") return { min: 51, max: 200 };
+    if (band === "201+") return { min: 201, max: Infinity };
+    return null;
+  };
+
+  const validateExactEmployeeCount = (band) => {
+    if (!exactEmployeesInput || !exactEmployeesInput.value) {
+      if (employeeCountError) employeeCountError.textContent = "";
+      return true;
+    }
+
+    const exactEmployees = getExactEmployeeCount();
+    if (exactEmployees === null) {
+      if (employeeCountError) employeeCountError.textContent = "Enter a whole number greater than 0.";
+      return false;
+    }
+
+    const range = getBandRange(band);
+    if (!range) {
+      if (employeeCountError) employeeCountError.textContent = "Select an employee band first.";
+      return false;
+    }
+
+    if (exactEmployees < range.min || exactEmployees > range.max) {
+      const maxText = range.max === Infinity ? `${range.min}+` : `${range.min}-${range.max}`;
+      if (employeeCountError) {
+        employeeCountError.textContent = `Employee count must be within the selected band (${maxText}).`;
+      }
+      return false;
+    }
+
+    if (employeeCountError) employeeCountError.textContent = "";
+    return true;
+  };
+
+  const topChoicesSelected = () => {
+    return !!(
+      getCompareActive("system") &&
+      getCompareActive("period") &&
+      getCompareActive("band")
+    );
+  };
+
+  const updateCompareMode = () => {
+    const selected = topChoicesSelected();
+    const validCount = selected ? validateExactEmployeeCount(getCompareActive("band")) : true;
+    const enabled = selected && validCount;
+    compareSummaryUpdated = enabled;
+    comparePricesUpdated = enabled;
+  };
+
   let compareSummaryUpdated = false;
   let comparePricesUpdated = false;
 
@@ -439,10 +500,6 @@ if (modalForm && modalEmailInput && modalErrorText) {
       const suffixEl = card.querySelector("small");
       if (valueEl) valueEl.textContent = "";
       if (suffixEl) suffixEl.textContent = "";
-    });
-
-    comparePriceCells.forEach((cell) => {
-      cell.innerHTML = "";
     });
   };
 
@@ -485,11 +542,6 @@ if (modalForm && modalEmailInput && modalErrorText) {
   };
 
   const updateComparePriceCells = () => {
-    if (!comparePricesUpdated) {
-      resetComparePrices();
-      return;
-    }
-
     const selectedPeriod = getCompareActive("period") || "yearly";
 
     comparePriceCells.forEach((cell) => {
@@ -510,13 +562,24 @@ if (modalForm && modalEmailInput && modalErrorText) {
     });
   };
 
+  const updateBandRowHighlight = () => {
+    const selectedBand = getCompareActive("band");
+    comparePriceCells.forEach((cell) => {
+      const row = cell.closest("tr");
+      if (!row) return;
+      row.classList.toggle("band-row--active", selectedBand && cell.dataset.compareBand === selectedBand);
+    });
+  };
+
   const updateComparePriceCards = () => {
     if (!comparePricesUpdated) {
       resetComparePrices();
       return;
     }
 
+    const selectedSystem = getCompareActive("system");
     const selectedPeriod = getCompareActive("period") || "yearly";
+    const selectedBand = getCompareActive("band") || "51-200";
     const periodLabel = selectedPeriod === "monthly"
       ? "/user/month"
       : selectedPeriod === "quarterly"
@@ -527,13 +590,19 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
     comparePriceCards.forEach((card) => {
       const plan = card.dataset.comparePrice;
-      const planPrices = comparePlanPrices[plan]?.[selectedPeriod];
-      if (!planPrices) return;
-
-      const price = planPrices[getCompareActive("band") || "51-200"];
       const valueEl = card.querySelector(".compare-price-value");
       const suffixEl = card.querySelector("small");
 
+      if (plan !== selectedSystem) {
+        if (valueEl) valueEl.textContent = "";
+        if (suffixEl) suffixEl.textContent = "";
+        return;
+      }
+
+      const planPrices = comparePlanPrices[plan]?.[selectedPeriod];
+      if (!planPrices) return;
+
+      const price = planPrices[selectedBand];
       if (price === "Custom") {
         if (valueEl) valueEl.textContent = "Custom";
         if (suffixEl) suffixEl.textContent = "";
@@ -545,9 +614,9 @@ if (modalForm && modalEmailInput && modalErrorText) {
   };
 
   const updateCompareCards = () => {
-    const selectedSystem = getCompareActive("system") || "attendance";
+    const selectedSystem = getCompareActive("system");
     compareCards.forEach((card) => {
-      card.classList.toggle("compare-card--active", card.dataset.comparePlan === selectedSystem);
+      card.classList.toggle("compare-card--active", selectedSystem && card.dataset.comparePlan === selectedSystem);
     });
   };
 
@@ -583,11 +652,14 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
     const planLabel = comparePlans[selectedSystem]?.label || "Complete Package";
     const periodLabel = selectedPayment === "semi" ? "6 months" : selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1);
-    const employeesLabel = selectedBand === "201+" ? "201+ employees" : `${selectedBand.replace("-", "–")} employees`;
+    const exactEmployees = getExactEmployeeCount();
+    const employeesLabel = exactEmployees
+      ? `${exactEmployees} employees`
+      : selectedBand === "201+" ? "201+ employees" : `${selectedBand.replace("-", "–")} employees`;
     const basePrice = comparePlanPrices[selectedSystem]?.[selectedPeriod]?.[selectedBand] || "Custom";
-    const discountRate = selectedPayment === "yearly" ? 0.15 : selectedPayment === "semi" ? 0.10 : 0;
+    const discountRate = selectedPayment === "yearly" ? 0.15 : selectedPayment === "quarterly" ? 0.08 : selectedPayment === "semi" ? 0.10 : 0;
     const priceValue = basePrice === "Custom" ? 0 : Number(basePrice);
-    const employeeCount = compareBandSizes[selectedBand] || 75;
+    const employeeCount = exactEmployees || compareBandSizes[selectedBand] || 75;
     const subtotal = priceValue * employeeCount;
     const discount = subtotal * discountRate;
     const afterDiscount = subtotal - discount;
@@ -615,8 +687,9 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
   const updateCompareSection = () => {
     updateComparePriceCells();
-    updateComparePriceCards();
+    updateBandRowHighlight();
     updateCompareCards();
+    updateComparePriceCards();
     updateCompareSummary();
   };
 
@@ -639,12 +712,23 @@ if (modalForm && modalEmailInput && modalErrorText) {
         }
       });
 
-      compareSummaryUpdated = true;
-      comparePricesUpdated = true;
+      updateCompareMode();
       updateCompareSection();
     });
   });
 
+  if (exactEmployeesInput) {
+    exactEmployeesInput.addEventListener("input", () => {
+      updateCompareMode();
+      updateCompareSection();
+    });
+    exactEmployeesInput.addEventListener("blur", () => {
+      updateCompareMode();
+      updateCompareSection();
+    });
+  }
+
+  updateCompareMode();
   updateCompareSection();
 
   // Reveals
