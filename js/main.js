@@ -439,9 +439,10 @@ if (modalForm && modalEmailInput && modalErrorText) {
   };
 
   const getBandRange = (band) => {
-    if (band === "5-50") return { min: 5, max: 50 };
-    if (band === "51-200") return { min: 51, max: 200 };
-    if (band === "201+") return { min: 201, max: Infinity };
+    if (band === "1-9") return { min: 1, max: 9 };
+    if (band === "10-49") return { min: 10, max: 49 };
+    if (band === "50-200") return { min: 50, max: 200 };
+    if (band === "200+") return { min: 200, max: Infinity };
     return null;
   };
 
@@ -486,9 +487,10 @@ if (modalForm && modalEmailInput && modalErrorText) {
   const updateCompareMode = () => {
     const selected = topChoicesSelected();
     const validCount = selected ? validateExactEmployeeCount(getCompareActive("band")) : true;
+    const exactEmployees = getExactEmployeeCount();
     const enabled = selected && validCount;
-    compareSummaryUpdated = enabled;
     comparePricesUpdated = enabled;
+    compareSummaryUpdated = enabled && exactEmployees !== null;
   };
 
   let compareSummaryUpdated = false;
@@ -505,35 +507,29 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
   const comparePlans = {
     attendance: { label: "Attendance", icon: "fas fa-users" },
-    payroll: { label: "Payroll", icon: "fas fa-file-invoice-dollar" },
     bundle: { label: "Complete Package", icon: "fas fa-check-circle" }
   };
 
   const comparePlanPrices = {
     attendance: {
-      monthly: { "5-50": "19", "51-200": "17", "201+": "Custom" },
-      quarterly: { "5-50": "54", "51-200": "52", "201+": "Custom" },
-      semi: { "5-50": "102", "51-200": "100", "201+": "Custom" },
-      yearly: { "5-50": "190", "51-200": "180", "201+": "Custom" }
-    },
-    payroll: {
-      monthly: { "5-50": "25", "51-200": "23", "201+": "Custom" },
-      quarterly: { "5-50": "71", "51-200": "70", "201+": "Custom" },
-      semi: { "5-50": "135", "51-200": "132", "201+": "Custom" },
-      yearly: { "5-50": "250", "51-200": "240", "201+": "Custom" }
+      monthly: { "1-9": "19", "10-49": "19", "50-200": "17", "200+": "Custom" },
+      quarterly: { "1-9": "54", "10-49": "54", "50-200": "52", "200+": "Custom" },
+      semi: { "1-9": "102", "10-49": "102", "50-200": "100", "200+": "Custom" },
+      yearly: { "1-9": "190", "10-49": "190", "50-200": "180", "200+": "Custom" }
     },
     bundle: {
-      monthly: { "5-50": "39", "51-200": "37", "201+": "Custom" },
-      quarterly: { "5-50": "111", "51-200": "109", "201+": "Custom" },
-      semi: { "5-50": "211", "51-200": "205", "201+": "Custom" },
-      yearly: { "5-50": "390", "51-200": "370", "201+": "Custom" }
+      monthly: { "1-9": "39", "10-49": "39", "50-200": "37", "200+": "Custom" },
+      quarterly: { "1-9": "111", "10-49": "111", "50-200": "109", "200+": "Custom" },
+      semi: { "1-9": "211", "10-49": "211", "50-200": "205", "200+": "Custom" },
+      yearly: { "1-9": "390", "10-49": "390", "50-200": "370", "200+": "Custom" }
     }
   };
 
   const compareBandSizes = {
-    "5-50": 30,
-    "51-200": 125,
-    "201+": 220
+    "1-9": 10,
+    "10-49": 35,
+    "50-200": 125,
+    "200+": 220
   };
 
   const getCompareActive = (type) => {
@@ -579,7 +575,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
     const selectedSystem = getCompareActive("system");
     const selectedPeriod = getCompareActive("period") || "yearly";
-    const selectedBand = getCompareActive("band") || "51-200";
+    const selectedBand = getCompareActive("band") || "50-200";
     const periodLabel = selectedPeriod === "monthly"
       ? "/user/month"
       : selectedPeriod === "quarterly"
@@ -645,7 +641,7 @@ if (modalForm && modalEmailInput && modalErrorText) {
 
     const selectedSystem = getCompareActive("system") || "attendance";
     const selectedPeriod = getCompareActive("period") || "yearly";
-    const selectedBand = getCompareActive("band") || "51-200";
+    const selectedBand = getCompareActive("band") || "50-200";
     const selectedPayment = getCompareActive("payment") || "yearly";
 
     if (!compareSummary) return;
@@ -653,13 +649,13 @@ if (modalForm && modalEmailInput && modalErrorText) {
     const planLabel = comparePlans[selectedSystem]?.label || "Complete Package";
     const periodLabel = selectedPayment === "semi" ? "6 months" : selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1);
     const exactEmployees = getExactEmployeeCount();
-    const employeesLabel = exactEmployees
+    const employeesLabel = exactEmployees !== null
       ? `${exactEmployees} employees`
-      : selectedBand === "201+" ? "201+ employees" : `${selectedBand.replace("-", "–")} employees`;
+      : selectedBand === "200+" ? "200+ employees" : `${selectedBand.replace("-", "–")} employees`;
     const basePrice = comparePlanPrices[selectedSystem]?.[selectedPeriod]?.[selectedBand] || "Custom";
     const discountRate = selectedPayment === "yearly" ? 0.15 : selectedPayment === "quarterly" ? 0.08 : selectedPayment === "semi" ? 0.10 : 0;
     const priceValue = basePrice === "Custom" ? 0 : Number(basePrice);
-    const employeeCount = exactEmployees || compareBandSizes[selectedBand] || 75;
+    const employeeCount = exactEmployees !== null ? exactEmployees : compareBandSizes[selectedBand] || 75;
     const subtotal = priceValue * employeeCount;
     const discount = subtotal * discountRate;
     const afterDiscount = subtotal - discount;

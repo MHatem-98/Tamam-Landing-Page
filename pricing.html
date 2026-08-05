@@ -76,7 +76,6 @@
                 <div class="col-12 d-flex justify-content-center p-0">
 
                   <button type="button" class="pricing-chip" data-compare-system="attendance">Attendance</button>
-                  <button type="button" class="pricing-chip" data-compare-system="payroll">Payroll</button>
                   <button type="button" class="pricing-chip" data-compare-system="bundle">Attendance & Payroll</button>
                 </div>
               </div>
@@ -87,8 +86,10 @@
                   <span class="filter-label">Subscription period:</span>
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                  <button type="button" class="pricing-chip" data-compare-period="yearly">Yearly</button>
+                  <button type="button" class="pricing-chip" data-compare-period="monthly">Monthly</button>
+                  <button type="button" class="pricing-chip" data-compare-period="quarterly">Quarterly</button>
                   <button type="button" class="pricing-chip" data-compare-period="semi">6 months</button>
+                  <button type="button" class="pricing-chip" data-compare-period="yearly">Yearly</button>
                 </div>
               </div>
             </div>
@@ -99,17 +100,18 @@
                 </div>
                 <div class="col-12 d-flex justify-content-center">
 
-                  <button type="button" class="pricing-chip" data-compare-band="5-50">5–50</button>
-                  <button type="button" class="pricing-chip" data-compare-band="51-200">51–200</button>
-                  <button type="button" class="pricing-chip" data-compare-band="201+">201+</button>
+                  <button type="button" class="pricing-chip" data-compare-band="1-9">1–9</button>
+                  <button type="button" class="pricing-chip" data-compare-band="10-49">10–49</button>
+                  <button type="button" class="pricing-chip" data-compare-band="50-200">50–200</button>
+                  <button type="button" class="pricing-chip" data-compare-band="200+">200+</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="pricing-comparison__filters mb-4">
-          <div class="row g-4 mb-4">
-            <div class="col-lg-4">
+          <div class="row justify-content-center g-4 mb-4">
+            <div class="col-md-6 col-lg-5">
               <div class="compare-card" data-compare-plan="attendance">
                 <div class="compare-card__icon compare-card__icon--attendance"><i class="fas fa-users"></i></div>
                 <h4>Attendance</h4>
@@ -125,33 +127,9 @@
                   <strong><img src="img/Saudi_Riyal_Symbol.png" alt="Saudi Riyal" width="20px"><span
                       class="compare-price-value">19</span> <small>/user/month</small></strong>
                 </div>
-                <!-- <button class="btn btn-outline-primary w-100 mt-3" type="button"
-                  data-compare-action="attendance">Subscribe Now</button> -->
               </div>
             </div>
-            
-            <div class="col-lg-4">
-              <div class="compare-card" data-compare-plan="payroll">
-                <div class="compare-card__icon compare-card__icon--payroll"><i class="fas fa-file-invoice-dollar"></i>
-                </div>
-                <h4>Payroll</h4>
-                <p>Salary records, payslips, approvals, and finance exports.</p>
-                <ul class="compare-card__list">
-                  <li>Payroll records and salary components</li>
-                  <li>Payslip generation and export</li>
-                  <li>Leave & bonus handling</li>
-                  <li>Priority payroll assistance</li>
-                </ul>
-                <div class="compare-card__price" data-compare-price="payroll">
-                  <span>Starting from</span>
-                  <strong><img src="img/Saudi_Riyal_Symbol.png" alt="Saudi Riyal" width="20px"><span
-                      class="compare-price-value">25</span> <small>/user/month</small></strong>
-                </div>
-                <!-- <button class="btn btn-outline-primary w-100 mt-3" type="button" data-compare-action="payroll">Subscribe
-                  Now</button> -->
-              </div>
-            </div>
-            <div class="col-lg-4">
+            <div class="col-md-6 col-lg-5">
               <div class="compare-card" data-compare-plan="bundle">
                 <div class="compare-card__badge">Best Value</div>
                 <div class="compare-card__icon compare-card__icon--full"><i class="fas fa-check-circle"></i></div>
@@ -168,11 +146,8 @@
                   <strong><img src="img/Saudi_Riyal_Symbol.png" alt="Saudi Riyal" width="20px"><span
                       class="compare-price-value">39</span> <small>/user/month</small></strong>
                 </div>
-                <!-- <button class="btn btn-primary w-100 mt-3" type="button" data-compare-action="bundle">Subscribe
-                  Now</button> -->
               </div>
             </div>
-            
           </div>
         </div>
         <div class="row g-4 align-items-start">
@@ -190,28 +165,29 @@
                     <tr>
                       <th>Employee range</th>
                       <th>Attendance</th>
-                      <th>Payroll</th>
                       <th>Complete package</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>5–50 employees</td>
-                      <td data-compare-cell="attendance" data-compare-band="5-50"></td>
-                      <td data-compare-cell="payroll" data-compare-band="5-50"></td>
-                      <td data-compare-cell="bundle" data-compare-band="5-50"></td>
+                      <td>1–9 employees</td>
+                      <td data-compare-cell="attendance" data-compare-band="1-9"></td>
+                      <td data-compare-cell="bundle" data-compare-band="1-9"></td>
                     </tr>
                     <tr>
-                      <td>51–200 employees</td>
-                      <td data-compare-cell="attendance" data-compare-band="51-200"></td>
-                      <td data-compare-cell="payroll" data-compare-band="51-200"></td>
-                      <td data-compare-cell="bundle" data-compare-band="51-200"></td>
+                      <td>10–49 employees</td>
+                      <td data-compare-cell="attendance" data-compare-band="10-49"></td>
+                      <td data-compare-cell="bundle" data-compare-band="10-49"></td>
                     </tr>
                     <tr>
-                      <td>201+ employees</td>
-                      <td data-compare-cell="attendance" data-compare-band="201+"></td>
-                      <td data-compare-cell="payroll" data-compare-band="201+"></td>
-                      <td data-compare-cell="bundle" data-compare-band="201+"></td>
+                      <td>50–200 employees</td>
+                      <td data-compare-cell="attendance" data-compare-band="50-200"></td>
+                      <td data-compare-cell="bundle" data-compare-band="50-200"></td>
+                    </tr>
+                    <tr>
+                      <td>200+ employees</td>
+                      <td data-compare-cell="attendance" data-compare-band="200+"></td>
+                      <td data-compare-cell="bundle" data-compare-band="200+"></td>
                     </tr>
                   </tbody>
                 </table>
